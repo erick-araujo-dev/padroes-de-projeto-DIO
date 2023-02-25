@@ -1,5 +1,6 @@
 package com.one.digitalinnovation.gof;
 
+import com.one.digitalinnovation.gof.facade.Facade;
 import com.one.digitalinnovation.gof.singleton.SingletonEager;
 import com.one.digitalinnovation.gof.singleton.SingletonLazy;
 import com.one.digitalinnovation.gof.singleton.SingletonLazyHolder;
@@ -7,6 +8,7 @@ import com.one.digitalinnovation.gof.strategy.*;
 
 public class Test {
     public static void main(String[] args) {
+        //singleton
         SingletonLazy lazy = SingletonLazy.getInstance();
         System.out.println(lazy);
         lazy = SingletonLazy.getInstance();
@@ -24,6 +26,8 @@ public class Test {
         lazyHolder = SingletonLazyHolder.getInstance();
         System.out.println(lazyHolder);
 
+        //strategy
+
         Behavior defensive = new DefensiveBehavior();
         Behavior normal = new NormalBehavior();
         Behavior aggressive = new AggressiveBehavior();
@@ -40,6 +44,12 @@ public class Test {
         robot.setBehavior(defensive);
         robot.toMove();
         robot.toMove();
+
+        //facade
+        System.out.println();
+
+        Facade facade = new Facade();
+        facade.MigrateClient("Erick", "18159999");
     }
 
 
